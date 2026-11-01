@@ -106,6 +106,7 @@ p { margin: 0; text-wrap: pretty; }
 .film.paused .pp .i-play { display: block; }
 @media (max-width: 640px) { .film { border-radius: 20px; padding: 5px; } .film video { border-radius: 16px; } .film .readout { left: 16px; top: -12px; font-size: 10px; padding: 6px 9px; gap: 7px; } .film .pp { right: 14px; bottom: 14px; } }
 .stage { margin-top: clamp(40px, 6vw, 72px); }
+.beats.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .beats { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .beats button { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%; position: relative; padding: 12px 14px 16px; border-radius: 14px; font: 600 14px/1.2 var(--body); color: var(--text-3); text-align: left; transition: color .2s ease, background-color .2s ease; }
 .beats .n { display: block; font: 500 11px/1 var(--mono); letter-spacing: .06em; margin-bottom: 6px; color: var(--text-3); }
@@ -224,7 +225,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
   <div class="w">
     <a class="brand" href="#top"><img src="img/logo.png" alt="">GlideLine Studio</a>
     <nav aria-label="Sections">
-      <a href="#maps">Maps</a><a href="#three">3D</a><a href="#walk">Flyovers</a><a href="#together">Together</a><a href="#share">Share</a><a href="#onsite">On site</a><a href="#more">More</a>
+      <a href="#maps">Maps</a><a href="#three">3D</a><a href="#edit">Editing</a><a href="#walk">Flyovers</a><a href="#together">Together</a><a href="#share">Share</a><a href="#onsite">On site</a><a href="#more">More</a>
     </nav>
     <a class="btn btn-go" href="https://demo.glidelinestudio.com" target="_blank" rel="noopener">Try the demo</a>
   </div>
@@ -297,18 +298,16 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
       </div>
       <div class="stage rv">
         <div class="film glass" data-film>
-          <video id="hero-film" src="img2/hero.mp4" poster="img2/hero-poster.webp" muted playsinline preload="auto" aria-label="Hole 16 at Thunder Hollow in GlideLine Studio: its basket dragged in 3D, the tee stood on, the hole walked, and the course map"></video>
-          <span class="readout" aria-hidden="true"><b>Hole 16</b><i></i>Par 3<i></i>269 ft<i></i>↓ 31 ft</span>
+          <video id="import-film" class="beat-film" data-beats="imp-beats" src="img2/import.mp4" poster="img2/import-poster.webp" muted playsinline preload="metadata" aria-label="A park searched and brought in: its aerial photo, elevation, LiDAR trees, paths and buildings, then the park in 3D"></video>
+          <span class="readout" aria-hidden="true"><b>One search</b><i></i>3,550 trees<i></i>429 ft of climb</span>
           <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
         </div>
-        <ol class="beats" id="beats" aria-label="In the film">
-          <li data-at="0"><button><span class="n">01</span>Tee view<i></i></button></li>
-          <li data-at="1.4"><button><span class="n">02</span>3D editing<i></i></button></li>
-          <li data-at="10.82"><button><span class="n">03</span>Walk mode<i></i></button></li>
-          <li data-at="17.8"><button><span class="n">04</span>Print-ready maps<i></i></button></li>
+        <ol class="beats three" id="imp-beats" aria-label="In the film">
+          <li data-at="0"><button><span class="n">01</span>Find your park<i></i></button></li>
+          <li data-at="5.32"><button><span class="n">02</span>Bring it in<i></i></button></li>
+          <li data-at="10.64"><button><span class="n">03</span>Explore in 3D<i></i></button></li>
         </ol>
       </div>
-      <div class="sub-head gap"><h3 class="rv">3D editing</h3><p class="rv">Move, grow and place trees, tees and baskets in 3D</p></div>
       <div class="film glass rv" data-film>
         <video id="sun-film" src="img2/sun.mp4" poster="img2/sun-poster.webp" muted loop playsinline preload="metadata" aria-label="The sun going once round hole 16, the shadows of the trees following it"></video>
         <span class="readout" aria-hidden="true">Sun <b id="sun-az">260°</b><i></i><span id="sun-h">20°</span> high</span>
@@ -329,10 +328,33 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
     </div>
   </section>
 
+  <section class="chapter" id="edit">
+    <div class="w">
+      <div class="head">
+        <span class="mono rv">03 · Editing</span>
+        <h2 class="rv" style="--i:1">Edit in 3D</h2>
+        <p class="rv" style="--i:2">Move, grow and place trees, tees and baskets, then walk the hole</p>
+      </div>
+      <div class="stage rv">
+        <div class="film glass" data-film>
+          <video id="hero-film" class="beat-film" data-beats="beats" src="img2/hero.mp4" poster="img2/hero-poster.webp" muted playsinline preload="auto" aria-label="Hole 16 at Thunder Hollow in GlideLine Studio: its basket dragged in 3D, the tee stood on, the hole walked, and the course map"></video>
+          <span class="readout" aria-hidden="true"><b>Hole 16</b><i></i>Par 3<i></i>269 ft<i></i>↓ 31 ft</span>
+          <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <ol class="beats" id="beats" aria-label="In the film">
+          <li data-at="0"><button><span class="n">01</span>Tee view<i></i></button></li>
+          <li data-at="1.4"><button><span class="n">02</span>3D editing<i></i></button></li>
+          <li data-at="10.82"><button><span class="n">03</span>Walk mode<i></i></button></li>
+          <li data-at="17.8"><button><span class="n">04</span>Print-ready maps<i></i></button></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <section class="chapter" id="walk">
     <div class="w">
       <div class="head">
-        <span class="mono rv">03 · Flyovers</span>
+        <span class="mono rv">04 · Flyovers</span>
         <h2 class="rv" style="--i:1">Flyover videos</h2>
         <p class="rv" style="--i:2">Fly any hole from tee to basket. Export up to 4K.</p>
       </div>
@@ -359,7 +381,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
   <section class="chapter" id="together">
     <div class="w">
       <div class="head">
-        <span class="mono rv">04 · Together</span>
+        <span class="mono rv">05 · Together</span>
         <h2 class="rv" style="--i:1">Real-time collaboration</h2>
       </div>
       <div class="film glass rv" data-film>
@@ -378,7 +400,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
   <section class="chapter" id="share">
     <div class="w">
       <div class="head">
-        <span class="mono rv">05 · Share</span>
+        <span class="mono rv">06 · Share</span>
         <h2 class="rv" style="--i:1">Public course pages</h2>
         <p class="rv" style="--i:2">Maps, holes, flyovers and scorecards on any phone</p>
       </div>
@@ -398,7 +420,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
   <section class="chapter" id="onsite">
     <div class="w">
       <div class="head">
-        <span class="mono rv">06 · On site</span>
+        <span class="mono rv">07 · On site</span>
         <h2 class="rv" style="--i:1">Built for the course</h2>
       </div>
       <div class="onsite">
@@ -416,7 +438,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
   <section class="chapter" id="more">
     <div class="w">
       <div class="head">
-        <span class="mono rv">07 · And more</span>
+        <span class="mono rv">08 · And more</span>
         <h2 class="rv" style="--i:1">Everything a course needs</h2>
       </div>
       <div class="bento">
@@ -484,10 +506,10 @@ $$('[data-film]').forEach(box => {
   seen(v, on => { if (on && !paused) v.play().catch(() => {}); else v.pause(); });
 });
 
-// The hero film: its four parts light up as it reaches them; a part jumps the film there; it
-// starts over a moment after the end
-(() => {
-  const v = $('#hero-film'), beats = $$('#beats li');
+// Films with parts under them: each part lights up as the film reaches it; a part jumps the film
+// there; the film starts over a moment after the end
+$$('video.beat-film').forEach(v => {
+  const beats = $$('#' + v.dataset.beats + ' li');
   const at = beats.map(b => +b.dataset.at);
   const tick = () => {
     const t = v.currentTime, d = v.duration || 1;
@@ -502,7 +524,7 @@ $$('[data-film]').forEach(box => {
   v.addEventListener('play', tick); v.addEventListener('seeked', tick);
   v.addEventListener('ended', () => setTimeout(() => { if (!v.closest('[data-film]').classList.contains('paused')) { v.currentTime = 0; v.play().catch(() => {}); } }, 1600));
   beats.forEach((b, i) => b.querySelector('button').addEventListener('click', () => { v.currentTime = at[i] + 0.01; v.play().catch(() => {}); }));
-})();
+});
 
 // The sun film's readout: where the sun is, as the film has it (once round in 8 s, from 260°)
 (() => {
