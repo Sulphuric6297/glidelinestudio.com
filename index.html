@@ -141,6 +141,20 @@ p { margin: 0; text-wrap: pretty; }
 .chips button:focus-visible { outline: 2px solid var(--pond); outline-offset: 2px; }
 @media (max-width: 640px) { .fade { border-radius: 20px; padding: 5px; } .fade .frame { border-radius: 16px; } }
 
+.still { border-radius: 28px; padding: 8px; position: relative; }
+.still img { display: block; width: 100%; border-radius: 21px; }
+.still .map-tag { position: absolute; left: 28px; top: -15px; z-index: 3; background: rgba(13,17,13,.92); }
+.fade-bar { position: absolute; left: 24px; right: 24px; bottom: 20px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.2); overflow: hidden; z-index: 2; }
+.fade-bar i { display: block; height: 100%; width: 0; background: var(--fern); }
+.fade-bar i.run { animation: fill var(--ms, 2200ms) linear forwards; }
+@keyframes fill { to { width: 100%; } }
+.minis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: clamp(56px, 8vw, 96px); }
+.mini { border-radius: 24px; padding: 8px 8px 18px; display: grid; gap: 6px; }
+.mini .fade { border-radius: 17px; padding: 0; }
+.mini .fade .frame { border-radius: 17px; }
+.mini h3 { font-size: 20px; letter-spacing: -0.02em; padding: 10px 12px 0; }
+.mini p { color: var(--text-2); font-size: 15px; padding: 0 12px; }
+@media (max-width: 760px) { .minis { grid-template-columns: minmax(0, 1fr); } .still { border-radius: 20px; padding: 5px; } .still img { border-radius: 16px; } .still .map-tag { left: 16px; top: -12px; font-size: 10px; padding: 6px 9px; gap: 7px; } }
 /* Hole 16's elevation, tee to basket */
 .profile { margin-top: 14px; border-radius: 22px; padding: 18px 22px 14px; display: grid; gap: 8px; }
 .profile .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
@@ -244,20 +258,10 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
       </div>
       <p class="small rv in" style="--i:4">Free and open source</p>
       <div class="stage rv in" style="--i:5">
-      <div class="fade glass" data-fade data-ms="2800" style="--ar: 1.295">
-        <span class="readout map-tag" aria-hidden="true"><b>Thunder Hollow</b><i></i>18 holes<i></i>Par 55</span>
-        <div class="frame">
-          <img class="on" src="img2/look-brushed-summer.webp" alt="Thunder Hollow's course map, Brushed, summer" decoding="async">
-          <img src="img2/look-classic-autumn.webp" alt="Classic, vivid autumn" decoding="async" loading="lazy">
-          <img src="img2/look-golden-late.webp" alt="Golden hour, late summer" decoding="async" loading="lazy">
-          <img src="img2/look-brushed-night.webp" alt="Brushed, at night" decoding="async" loading="lazy">
-          <img src="img2/look-storybook-blossom.webp" alt="Storybook, spring blossom" decoding="async" loading="lazy">
-          <img src="img2/look-hollow-pines.webp" alt="Hollow, pine forest" decoding="async" loading="lazy">
-          <img src="img2/look-gouache-teal.webp" alt="Gouache, teal and gold" decoding="async" loading="lazy">
-          <img src="img2/look-brushed-plum.webp" alt="Brushed, plum leaves" decoding="async" loading="lazy">
+        <div class="still glass">
+          <span class="readout map-tag" aria-hidden="true"><b>Thunder Hollow</b><i></i>18 holes<i></i>Par 55</span>
+          <img src="img2/va-b-summer.webp" alt="Thunder Hollow's illustrated course map" decoding="async">
         </div>
-      </div>
-      <div class="chips" data-chips><button class="on" aria-pressed="true">Brushed</button><button aria-pressed="false">Classic</button><button aria-pressed="false">Golden hour</button><button aria-pressed="false">Night</button><button aria-pressed="false">Storybook</button><button aria-pressed="false">Hollow</button><button aria-pressed="false">Gouache</button><button aria-pressed="false">Plum</button></div>
       </div>
     </div>
   </section>
@@ -267,11 +271,60 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
       <div class="head">
         <span class="mono rv">01 · Maps</span>
         <h2 class="rv" style="--i:1">Illustrated course maps</h2>
-        <p class="rv" style="--i:2">Seven styles, fully customizable</p>
+        <p class="rv" style="--i:2">Every color, every tree, every line, yours to change</p>
       </div>
-
+      <div class="fade glass rv" data-fade data-ms="2200" style="--ar: 1.295" aria-label="The same course map in different colors and styles">
+        <div class="frame">
+          <img class="on" src="img2/va-b-summer.webp" alt="" decoding="async">
+          <img src="img2/va-c-autumn.webp" alt="" decoding="async" loading="lazy">
+          <img src="img2/va-b-late.webp" alt="" decoding="async" loading="lazy">
+          <img src="img2/va-c-deep.webp" alt="" decoding="async" loading="lazy">
+          <img src="img2/va-b-early.webp" alt="" decoding="async" loading="lazy">
+          <img src="img2/va-b-autumn.webp" alt="" decoding="async" loading="lazy">
+          <img src="img2/va-c-lush.webp" alt="" decoding="async" loading="lazy">
+        </div>
+        <div class="fade-bar" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="chips" data-chips hidden></div>
       <div class="parts rv" style="margin-top:0" aria-label="Parts of the map you can change"><span>Sun</span><span>Shadows</span><span>Trees</span><span>Leaves</span><span>Grass</span><span>Fairways</span><span>Water</span><span>Paths</span><span>Hills</span><span>Colors</span><span>Fonts</span><span>Paper</span><span>Frame</span><span>QR codes</span></div>
       <div class="big rv"><b>4,320</b><span>style combinations</span></div>
+      <div class="minis">
+        <div class="mini glass rv">
+          <div class="fade" data-fade data-ms="1700" style="--ar:1.45"><div class="frame">
+            <img class="on" src="img2/cu-fw-1.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-fw-3.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-fw-4.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-fw-5.webp" alt="" decoding="async" loading="lazy">
+          </div></div><div class="chips" data-chips hidden></div>
+          <h3>Fairways</h3><p>Shape, width, color, or hidden</p>
+        </div>
+        <div class="mini glass rv">
+          <div class="fade" data-fade data-ms="1700" style="--ar:1.45"><div class="frame">
+            <img class="on" src="img2/cu-tr-5.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-tr-2.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-tr-4.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-tr-1.webp" alt="" decoding="async" loading="lazy">
+          </div></div><div class="chips" data-chips hidden></div>
+          <h3>Trees</h3><p>Style, size, pines and leaf color</p>
+        </div>
+        <div class="mini glass rv">
+          <div class="fade" data-fade data-ms="1700" style="--ar:1.4"><div class="frame">
+            <img class="on" src="img2/cu-mp-1.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-mp-3.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-mp-4.webp" alt="" decoding="async" loading="lazy">
+          </div></div><div class="chips" data-chips hidden></div>
+          <h3>The map</h3><p>Fonts, frame, angle and light</p>
+        </div>
+        <div class="mini glass rv">
+          <div class="fade" data-fade data-ms="1700" style="--ar:1.4"><div class="frame">
+            <img class="on" src="img2/cu-sg-1.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-sg-2.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-sg-3.webp" alt="" decoding="async" loading="lazy">
+            <img src="img2/cu-sg-4.webp" alt="" decoding="async" loading="lazy">
+          </div></div><div class="chips" data-chips hidden></div>
+          <h3>Tee signs</h3><p>Colors, fonts and layout</p>
+        </div>
+      </div>
 
       <div class="sub-head gap"><h3 class="rv">Print-ready</h3><p class="rv">Course maps, tee signs, hole pages and scorecards</p></div>
       <div class="tabs" role="tablist" aria-label="Printouts">
@@ -359,7 +412,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
         <p class="rv" style="--i:2">Fly any hole from tee to basket. Export up to 4K.</p>
       </div>
       <div class="film glass rv" data-film>
-        <video id="walk-film" data-w0="0.109" data-w1="0.934" src="img2/walk.mp4" poster="img2/walk-poster.webp" muted loop playsinline preload="metadata" aria-label="A flyover of hole 16 from the tee to the basket"></video>
+        <video id="walk-film" data-w0="0.015" data-w1="0.927" src="img2/walk.mp4" poster="img2/walk-poster.webp" muted loop playsinline preload="metadata" aria-label="A flyover of hole 16 from the tee to the basket"></video>
         <span class="readout" aria-hidden="true"><b>Hole 16</b><i></i><span id="walk-ft">0</span> ft</span>
         <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
       </div>
@@ -555,6 +608,7 @@ $$('[data-fade]').forEach(box => {
   const show = i => {
     at = (i + imgs.length) % imgs.length;
     imgs.forEach((im, k) => im.classList.toggle('on', k === at));
+    const bar = box.querySelector('.fade-bar i'); if (bar) { box.style.setProperty('--ms', ms + 'ms'); bar.classList.remove('run'); void bar.offsetWidth; if (!still) bar.classList.add('run'); }
     chips.forEach((c, k) => { c.classList.toggle('on', k === at); c.setAttribute('aria-pressed', k === at); });
     clearTimeout(timer); if (on && !still) timer = setTimeout(() => show(at + 1), ms);
   };
