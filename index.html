@@ -99,6 +99,7 @@ p { margin: 0; text-wrap: pretty; }
 /* A film in a glass frame, its readout on it and a pause button */
 .film { position: relative; border-radius: 28px; padding: 8px; }
 .film video { display: block; width: 100%; border-radius: 21px; background: #0a0d0a; aspect-ratio: 16 / 10; object-fit: cover; }
+#walk-film { aspect-ratio: 16 / 9; }
 .film .readout { position: absolute; left: 28px; top: -15px; z-index: 2; background: rgba(13, 17, 13, 0.92); }
 .film .pp { position: absolute; right: 22px; bottom: 22px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; color: var(--white); background: rgba(10,14,10,.6); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: inset 0 0 0 0.5px var(--edge); }
 .film .pp svg { width: 16px; height: 16px; }
@@ -273,7 +274,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
         <h2 class="rv" style="--i:1">Illustrated course maps</h2>
         <p class="rv" style="--i:2">Every color, every tree, every line, yours to change</p>
       </div>
-      <div class="fade glass rv" data-fade data-ms="2200" style="--ar: 1.295" aria-label="The same course map in different colors and styles">
+      <div class="fade glass rv" data-fade data-ms="2200" style="--ar: 1.3333" aria-label="The same course map in different colors and styles">
         <div class="frame">
           <img class="on" src="img2/va-b-summer.webp" alt="" decoding="async">
           <img src="img2/va-c-autumn.webp" alt="" decoding="async" loading="lazy">
@@ -357,8 +358,8 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
         </div>
         <ol class="beats three" id="imp-beats" aria-label="In the film">
           <li data-at="0"><button><span class="n">01</span>Find your park<i></i></button></li>
-          <li data-at="6.24"><button><span class="n">02</span>Bring it in<i></i></button></li>
-          <li data-at="11.68"><button><span class="n">03</span>Explore in 3D<i></i></button></li>
+          <li data-at="6.14"><button><span class="n">02</span>Bring it in<i></i></button></li>
+          <li data-at="11.58"><button><span class="n">03</span>Explore in 3D<i></i></button></li>
         </ol>
       </div>
       <div class="film glass rv" data-film>
@@ -397,8 +398,8 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
         <ol class="beats" id="beats" aria-label="In the film">
           <li data-at="0"><button><span class="n">01</span>Tee view<i></i></button></li>
           <li data-at="1.4"><button><span class="n">02</span>3D editing<i></i></button></li>
-          <li data-at="10.82"><button><span class="n">03</span>Walk mode<i></i></button></li>
-          <li data-at="17.8"><button><span class="n">04</span>Print-ready maps<i></i></button></li>
+          <li data-at="10.92"><button><span class="n">03</span>Walk mode<i></i></button></li>
+          <li data-at="17.66"><button><span class="n">04</span>Print-ready maps<i></i></button></li>
         </ol>
       </div>
     </div>
@@ -412,7 +413,7 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
         <p class="rv" style="--i:2">Fly any hole from tee to basket. Export up to 4K.</p>
       </div>
       <div class="film glass rv" data-film>
-        <video id="walk-film" data-w0="0.015" data-w1="0.927" src="img2/walk.mp4" poster="img2/walk-poster.webp" muted loop playsinline preload="metadata" aria-label="A flyover of hole 16 from the tee to the basket"></video>
+        <video id="walk-film" data-w0="0.09" data-w1="0.99" src="img2/flyover.mp4" poster="img2/flyover-poster.webp" muted loop playsinline preload="metadata" aria-label="A flyover of hole 16 from the tee to the basket"></video>
         <span class="readout" aria-hidden="true"><b>Hole 16</b><i></i><span id="walk-ft">0</span> ft</span>
         <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
       </div>
