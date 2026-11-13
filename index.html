@@ -202,6 +202,13 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 900px) { .share { grid-template-columns: minmax(0, 1fr); } }
 
 /* On site: two phones */
+.pocket { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 24em); gap: clamp(24px, 5vw, 64px); align-items: center; justify-content: center; margin-top: clamp(40px, 6vw, 72px); }
+.pocket .phone.film { padding: 6px; border-radius: 34px; }
+.pocket .phone video { aspect-ratio: 618 / 1338; border-radius: 28px; }
+.pocket .phone .pp { right: -56px; bottom: 6px; }
+.pocket h3 { margin: 0 0 10px; font: 700 clamp(22px, 2.2vw, 28px)/1.15 var(--display); letter-spacing: -0.02em; color: var(--white); }
+.pocket p { margin: 0; color: var(--text-2); }
+@media (max-width: 640px) { .pocket { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } .pocket .phone.film { width: min(230px, 70vw); } }
 .onsite { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 4vw, 48px); max-width: 640px; margin: 0 auto; align-items: start; }
 
 @media (max-width: 520px) { .onsite .phone { border-radius: 24px; padding: 4px; } .onsite .phone img { border-radius: 20px; } }
@@ -303,19 +310,30 @@ footer .w { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: spac
       <div class="head">
         <span class="mono rv">01 · Import</span>
         <h2 class="rv" style="--i:1">Import your course</h2>
-        <p class="rv" style="--i:2">Search for it. The aerial photo, the elevation and the trees come in with it.</p>
+        <p class="rv" style="--i:2">Search for it and watch it build: the ground, every measured tree, the water and the paths. Then check each part before it comes in.</p>
       </div>
       <div class="stage rv">
         <div class="film glass" data-film>
-          <video id="import-film" class="beat-film" data-beats="imp-beats" src="img2/import.mp4" poster="img2/import-poster.webp" muted playsinline preload="none" aria-label="A course searched and brought in with its aerial photo, hills, trees, paths and buildings, then shown in 3D"></video>
-          <span class="readout" aria-hidden="true"><b>One search</b><i></i>3,550 trees<i></i>429 ft of climb</span>
+          <video id="import-film" class="beat-film" data-beats="imp-beats" src="img2/import.mp4" poster="img2/import-poster.webp" muted playsinline preload="none" aria-label="Mount Tabor Park searched and framed, then built in 3D: the photo laid down, the trees growing, the water and paths drawn in, then each part checked in turn and brought in"></video>
+          <span class="readout" aria-hidden="true"><b>One search</b><i></i>2,309 trees<i></i>389 ft of climb</span>
           <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
         </div>
-        <ol class="beats three" id="imp-beats" aria-label="In the film">
+        <ol class="beats" id="imp-beats" aria-label="In the film">
           <li data-at="0"><button><span class="n">01</span>Find your course<i></i></button></li>
-          <li data-at="5.54"><button><span class="n">02</span>Bring it in<i></i></button></li>
-          <li data-at="11.38"><button><span class="n">03</span>See it in 3D<i></i></button></li>
+          <li data-at="10.58"><button><span class="n">02</span>Watch it build<i></i></button></li>
+          <li data-at="28.93"><button><span class="n">03</span>Check each part<i></i></button></li>
+          <li data-at="46.89"><button><span class="n">04</span>Bring it in<i></i></button></li>
         </ol>
+      </div>
+      <div class="pocket">
+        <div class="phone film rv" data-film>
+          <video src="img2/import-phone.mp4" poster="img2/import-phone-poster.webp" muted loop playsinline preload="none" aria-label="The same import on a phone: one question at a time over the 3D course, with an arrow to the next"></video>
+          <button class="pp" aria-label="Pause the film"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <div class="pocket-text">
+          <h3 class="rv">On your phone too</h3>
+          <p class="rv" style="--i:1">One question at a time: the photo, the trees, the underbrush, the paths and water. Tap the arrow when it looks right.</p>
+        </div>
       </div>
     </div>
   </section>
